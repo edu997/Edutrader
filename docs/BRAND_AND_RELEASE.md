@@ -1,7 +1,7 @@
-# GP Trading Pro — Brand and Account Rollout
+# Ed Trading Pro — Brand and Account Rollout
 
 ## Confirmed product decisions
-- Public app name: GP Trading Pro
+- Public app name: Ed Trading Pro
 - Continue the existing Edu Trader Pro web project as the product foundation.
 - Visual direction: premium dark navy and gold.
 - Supported account types in the product plan: demo and real.
