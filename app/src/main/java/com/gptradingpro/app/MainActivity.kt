@@ -67,7 +67,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContent { GPTradingProApp() }
+        setContent { EdTradingProApp() }
     }
 }
 
@@ -80,7 +80,7 @@ private enum class MainTab(val label: String, val icon: ImageVector) {
 }
 
 @Composable
-private fun GPTradingProApp() {
+private fun EdTradingProApp() {
     var selectedTab by remember { mutableIntStateOf(0) }
     var accountMode by remember { mutableStateOf("DEMO") }
 
@@ -140,7 +140,7 @@ private fun Header(accountMode: String, onModeChange: (String) -> Unit) {
             }
             Spacer(Modifier.width(11.dp))
             Column(Modifier.weight(1f)) {
-                Text("GP TRADING PRO", color = White, fontWeight = FontWeight.ExtraBold, fontSize = 17.sp, letterSpacing = 1.2.sp)
+                Text("ED TRADING PRO", color = White, fontWeight = FontWeight.ExtraBold, fontSize = 17.sp, letterSpacing = 1.2.sp)
                 Text("TRADING INTELLIGENCE", color = Gold, fontSize = 9.sp, letterSpacing = 2.sp, fontWeight = FontWeight.Bold)
             }
             Icon(Icons.Default.NotificationsNone, contentDescription = "Notificaciones", tint = Muted, modifier = Modifier.size(25.dp))
