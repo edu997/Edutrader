@@ -1,4 +1,4 @@
-# Edu Trader Pro — Android + MT5 Architecture
+# Ed Trading Pro — Android + MT5 Architecture
 
 ## Agreed product scope
 - Continue the existing Spanish-language Edu Trader web app as a native Android application.
