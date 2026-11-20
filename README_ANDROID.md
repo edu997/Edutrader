@@ -1,9 +1,9 @@
-# GP Trading Pro — Android
+# Ed Trading Pro — Android
 
 Native Android foundation for the Edu Trader Pro evolution.
 
 ## Branding and scope
-- App name: GP Trading Pro
+- App name: Ed Trading Pro
 - Visual identity: premium dark navy and gold
 - Accounts: demo and real account modes are represented in the UI. Real trading is intentionally unavailable until MT5 connectivity, account authorization and risk safeguards are implemented.
 - Platform: MetaTrader 5
