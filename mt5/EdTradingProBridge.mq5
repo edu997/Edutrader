@@ -51,7 +51,7 @@ string BuildHeartbeatPayload()
    payload += "\"leverage\":" + LongToString(AccountInfoInteger(ACCOUNT_LEVERAGE)) + ",";
    payload += "\"terminal_build\":" + LongToString(build) + ",";
    payload += "\"terminal_connected\":" + (connected ? "true" : "false") + ",";
-   payload += "\"terminal_company\":\"" + JsonEscape(TerminalInfoString(TERMINAL会社)) + "\"";
+   payload += "\"terminal_company\":\"" + JsonEscape(TerminalInfoString(TERMINAL_COMPANY)) + "\"";
    payload += "}";
    return payload;
 }
