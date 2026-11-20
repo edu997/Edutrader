@@ -1,4 +1,4 @@
-# Edu Trader Pro — Android Development Roadmap
+# Ed Trading Pro — Android Development Roadmap
 
 ## Existing baseline found
 The main branch contains a large single-file Spanish-language web app in index.html titled “Binomo Pro — EduTrader”. It includes a PIN/session screen, dashboard and admin-related UI, signal handling/history, planning and daily logging, localStorage persistence, and a separate binary-options journal with risk limits and performance summaries. It is a web app, not an Android/Gradle project. README.md and package.json were not present at the checked paths.
