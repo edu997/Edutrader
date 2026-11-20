@@ -14,5 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GPTradingPro"
+rootProject.name = "EdTradingPro"
 include(":app")
