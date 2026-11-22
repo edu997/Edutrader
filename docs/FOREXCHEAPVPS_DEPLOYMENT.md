@@ -40,3 +40,19 @@ ForexCheapVPS advertises 24/7 support for Remote Desktop, Windows Server, connec
 
 - ForexCheapVPS FAQ: https://www.forexcheapvps.com/faqs
 - ForexCheapVPS support: https://www.forexcheapvps.com/supports
+
+## Low-resource profile: 2 GB RAM
+
+The owner has confirmed that this VPS plan has 2 GB of RAM. Treat it as a constrained production machine because Windows Server, the existing MT5 terminal, and the live EA/bot already share that memory.
+
+- Do not install or run a second MT5 terminal on this VPS for initial testing. A second terminal can materially increase RAM and CPU pressure.
+- Do not host the Ed Trading Pro API, database, dashboard, or other services on this 2 GB VPS. Host the gateway/backend externally (managed hosting or a separate server); the VPS should remain an MT5 terminal host only.
+- Do not add monitoring agents, Docker, a local database, or memory-heavy utilities as part of this rollout.
+- Keep the existing MT5 terminal, charts, EAs, and Windows configuration unchanged. Before any bridge test, check Task Manager for available memory and establish a baseline while the current bot is operating normally.
+- The bridge EA is designed to send a small HTTPS heartbeat periodically, but its actual resource use has not yet been measured on this machine. Do not assume it is harmless simply because the payload is small.
+- The first test must be scheduled during a maintenance window, use a demo terminal if the provider can supply a separate VPS or isolated test environment, and include a clear rollback: remove the bridge EA from its test chart and restore the prior chart/profile state.
+- If no separate test environment exists, do not attach the EA to the live terminal until the owner explicitly approves the risk and there is a tested rollback plan. Never stop the live bot merely to make room for an unapproved test.
+
+Suggested acceptance criteria before any production-terminal trial: no sustained increase in CPU usage, no material reduction in free memory, no MT5 freezes/restarts, no missed bot activity, and successful authenticated heartbeat delivery. If memory pressure or instability appears, remove the bridge EA and stop the trial.
+
+**Recommendation for this 2 GB plan:** keep all Ed Trading Pro backend services off the VPS, and postpone live-terminal bridge installation until a separate demo/test environment or an approved maintenance window is available. The current read-only design remains the only intended first phase; order execution is out of scope.
