@@ -63,4 +63,30 @@ class RiskPolicyValidatorTest {
         )
         assertFalse(result.approved)
     }
+
+    @Test fun rejectsMissingStopLoss() {
+        val request = intent().copy(stopLoss = null)
+        val result = RiskPolicyValidator.validate(request, policy, BigDecimal("0"), 0)
+        assertFalse(result.approved)
+    }
+
+    @Test fun rejectsMissingTakeProfit() {
+        val request = intent().copy(takeProfit = null)
+        val result = RiskPolicyValidator.validate(request, policy, BigDecimal("0"), 0)
+        assertFalse(result.approved)
+    }
+
+    @Test fun rejectsZeroOrNegativeEstimatedRisk() {
+        val zero = RiskPolicyValidator.validate(intent(risk = "0"), policy, BigDecimal("0"), 0)
+        val negative = RiskPolicyValidator.validate(intent(risk = "-1"), policy, BigDecimal("0"), 0)
+        assertFalse(zero.approved)
+        assertFalse(negative.approved)
+    }
+
+    @Test fun rejectsBlankIdempotencyKey() {
+        val result = RiskPolicyValidator.validate(
+            intent(key = "   "), policy, BigDecimal("0"), 0
+        )
+        assertFalse(result.approved)
+    }
 }
