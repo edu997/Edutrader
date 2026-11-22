@@ -29,10 +29,8 @@ jobs:
 
       - name: Set up Android SDK
         uses: android-actions/setup-android@v3
-
-      - name: Install Android SDK packages
-        run: |
-          sdkmanager "platform-tools" "platforms;android-36" "build-tools;36.0.0"
+        with:
+          packages: "platform-tools,platforms;android-36,build-tools;36.0.0"
 
       - name: Run unit tests
         run: gradle testDebugUnitTest
@@ -43,6 +41,6 @@ jobs:
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
-          name: gp-trading-pro-debug
+          name: ed-trading-pro-debug
           path: app/build/outputs/apk/debug/*.apk
           if-no-files-found: error
