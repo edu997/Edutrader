@@ -22,10 +22,15 @@ object RiskPolicyValidator {
         if (intent.volumeLots > policy.maxVolumeLots) {
             return RiskCheckResult(false, "El volumen supera el máximo permitido.")
         }
-        if (intent.estimatedRiskAmount < BigDecimal.ZERO ||
+        if (intent.stopLoss == null || intent.stopLoss <= BigDecimal.ZERO ||
+            intent.takeProfit == null || intent.takeProfit <= BigDecimal.ZERO
+        ) {
+            return RiskCheckResult(false, "La operación requiere Stop Loss y Take Profit válidos.")
+        }
+        if (intent.estimatedRiskAmount <= BigDecimal.ZERO ||
             intent.estimatedRiskAmount > policy.maxRiskPerTrade
         ) {
-            return RiskCheckResult(false, "El riesgo estimado por operación supera el límite.")
+            return RiskCheckResult(false, "El riesgo estimado por operación debe ser positivo y no superar el límite.")
         }
         if (openPositionCount >= policy.maxOpenPositions) {
             return RiskCheckResult(false, "Se alcanzó el máximo de posiciones abiertas.")
