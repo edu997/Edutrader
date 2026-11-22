@@ -26,4 +26,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run gateway tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}/backend/mt5-gateway
         run: pytest -q
